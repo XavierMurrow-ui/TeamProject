@@ -1,4 +1,6 @@
 package GUI;
+
+import DBConnect.*;
 import com.sun.tools.javac.Main;
 
 import java.awt.*;
@@ -21,10 +23,7 @@ public class loginGUI extends JFrame{
     private final JPasswordField password;
     private final JButton Login, Exit;
     private boolean enter = false;
-    private String username;
-    public String getUsername() {
-        return username;
-    }
+    private String username,Pass_word;
     public loginGUI(){
         super("Login");
         setLayout(new FlowLayout());
@@ -80,30 +79,18 @@ public class loginGUI extends JFrame{
                 ex.printStackTrace();
             }
             String Message="Please press ok ";
-            String Password = "";
             String role = "";
             if(e.getSource()==Login || enter){
                 username = login.getText();
-                Password = password.getText();
-                try{
-                    Statement st;
-                    ResultSet rs;
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bapers","root","");
-                    st = con.createStatement();
-                    rs = st.executeQuery("SELECT Role " +
-                            "FROM Staff " +
-                            "WHERE Staff.Username = '"+username+"'" +
-                            "AND Staff.Password = '"+Password+"'");
-                    while(rs.next()){role = rs.getString(1);}
-                }
-                catch(SQLException err){
-                    JOptionPane.showMessageDialog(null,err);
-                }
+                Pass_word = password.getText();
+                DBConnection login = new DBConnection(username,Pass_word);
+                role = login.RoleReturn();
+
                 if(role.equals("Technician")) {
                     JOptionPane.showMessageDialog(null,Message+username);
                     TechInterface test = new TechInterface("C:\\Users\\Xavie\\Documents\\AllData\\Technician");
                     test.setVisible(true);
-                }else if(username.equals("Front")){
+                }else if(role.equals("FrontStaff")){
                     JOptionPane.showMessageDialog(null,Message+username);
                     FInterface Front = new FInterface("C:\\Users\\Xavie\\Documents\\AllData\\FrontStaff");
                     Front.setVisible(true);
