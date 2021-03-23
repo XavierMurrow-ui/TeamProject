@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/SOTInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/SOTInterface$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/SOTInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/SOTInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/loginGUI$Enter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/loginGUI$Enter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OfficeManagerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OfficeManagerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOTInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOTInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShiftManagerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShiftManagerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/loginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,22 +77,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="818" y="391" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1616477347665" />
-    <state width="2517" height="329" key="GridCell.Tab.0.bottom" timestamp="1616477634030">
+    <state width="2517" height="329" key="GridCell.Tab.0.bottom" timestamp="1616477775873">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634030" />
-    <state width="2517" height="329" key="GridCell.Tab.0.center" timestamp="1616477634029">
+    <state width="2517" height="329" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1616477775873" />
+    <state width="2517" height="329" key="GridCell.Tab.0.center" timestamp="1616477775872">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634029" />
-    <state width="2517" height="329" key="GridCell.Tab.0.left" timestamp="1616477634029">
+    <state width="2517" height="329" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1616477775872" />
+    <state width="2517" height="329" key="GridCell.Tab.0.left" timestamp="1616477775872">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634029" />
-    <state width="2517" height="329" key="GridCell.Tab.0.right" timestamp="1616477634030">
+    <state width="2517" height="329" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1616477775872" />
+    <state width="2517" height="329" key="GridCell.Tab.0.right" timestamp="1616477775873">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634030" />
+    <state width="2517" height="329" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1616477775873" />
     <state width="2517" height="491" key="GridCell.Tab.1.bottom" timestamp="1613340196691">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
