@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DBConnect/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/MainInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/MainInterface$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/MainInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/SOTInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/SOTInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/TechInterface$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/TechInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/TechInterface$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/TechInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/loginGUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/loginGUI$Enter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/loginGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/loginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/loginGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,22 +91,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="818" y="391" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1616477347665" />
-    <state width="2517" height="329" key="GridCell.Tab.0.bottom" timestamp="1616478799239">
+    <state width="1236" height="329" key="GridCell.Tab.0.bottom" timestamp="1616479283883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1616478799239" />
-    <state width="2517" height="329" key="GridCell.Tab.0.center" timestamp="1616478799239">
+    <state width="1236" height="329" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1616479283883" />
+    <state width="1236" height="329" key="GridCell.Tab.0.center" timestamp="1616479283883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1616478799239" />
-    <state width="2517" height="329" key="GridCell.Tab.0.left" timestamp="1616478799239">
+    <state width="1236" height="329" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1616479283883" />
+    <state width="1236" height="329" key="GridCell.Tab.0.left" timestamp="1616479283883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1616478799239" />
-    <state width="2517" height="329" key="GridCell.Tab.0.right" timestamp="1616478799239">
+    <state width="1236" height="329" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1616479283883" />
+    <state width="1236" height="329" key="GridCell.Tab.0.right" timestamp="1616479283883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="329" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1616478799239" />
+    <state width="1236" height="329" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1616479283883" />
     <state width="2517" height="491" key="GridCell.Tab.1.bottom" timestamp="1613340196691">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
