@@ -20,5 +20,6 @@
     <orderEntry type="library" name="jcalendar-1.4" level="application" />
     <orderEntry type="library" name="raven-shared-master" level="application" />
     <orderEntry type="library" name="mysql-connector-java-8.0.22" level="application" />
+    <orderEntry type="library" name="itextpdf-5.5.13.2" level="application" />
   </component>
 </module>
