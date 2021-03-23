@@ -3,7 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/FInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/FInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/OfficeManagerInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/SOTInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/SOTInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/SOTInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/SOTInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/ShiftManagerInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TProject/loginGUI$Enter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/loginGUI$Enter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OfficeManagerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OfficeManagerInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOTInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOTInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShiftManagerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShiftManagerInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +54,11 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.22.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -76,26 +96,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1085" y="409" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1613443681306" />
-    <state x="818" y="391" key="FileChooserDialogImpl" timestamp="1613786355230">
+    <state x="818" y="391" key="FileChooserDialogImpl" timestamp="1616477347665">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="818" y="391" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1613786355230" />
-    <state width="1234" height="331" key="GridCell.Tab.0.bottom" timestamp="1616050988660">
+    <state x="818" y="391" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1616477347665" />
+    <state width="2517" height="329" key="GridCell.Tab.0.bottom" timestamp="1616477634030">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1234" height="331" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1616050988660" />
-    <state width="1234" height="331" key="GridCell.Tab.0.center" timestamp="1616050988660">
+    <state width="2517" height="329" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634030" />
+    <state width="2517" height="329" key="GridCell.Tab.0.center" timestamp="1616477634029">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1234" height="331" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1616050988660" />
-    <state width="1234" height="331" key="GridCell.Tab.0.left" timestamp="1616050988660">
+    <state width="2517" height="329" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634029" />
+    <state width="2517" height="329" key="GridCell.Tab.0.left" timestamp="1616477634029">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1234" height="331" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1616050988660" />
-    <state width="1234" height="331" key="GridCell.Tab.0.right" timestamp="1616050988660">
+    <state width="2517" height="329" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634029" />
+    <state width="2517" height="329" key="GridCell.Tab.0.right" timestamp="1616477634030">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1234" height="331" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1616050988660" />
+    <state width="2517" height="329" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1616477634030" />
     <state width="2517" height="491" key="GridCell.Tab.1.bottom" timestamp="1613340196691">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -112,18 +132,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="491" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1613340196691" />
-    <state x="193" y="294" key="SettingsEditor" timestamp="1613786358344">
+    <state x="193" y="294" key="SettingsEditor" timestamp="1616477349651">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="193" y="294" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1613786358344" />
-    <state x="343" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1616049904441">
+    <state x="193" y="294" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1616477349651" />
+    <state x="343" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1616470676374">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="343" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1616049904441" />
+    <state x="343" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1616470676374" />
     <state x="984" y="593" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1613039218346">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="984" y="593" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.2560.1400@0.0.2560.1400" timestamp="1613039218346" />
+    <state x="96" y="340" key="new project wizard" timestamp="1616472046839">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="96" y="340" key="new project wizard/0.0.2560.1400@0.0.2560.1400" timestamp="1616472046839" />
     <state x="296" y="334" width="672" height="677" key="run.anything.popup" timestamp="1612715007265">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

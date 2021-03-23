@@ -73,6 +73,11 @@ public class loginGUI extends JFrame{
     private class Enter implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
             String Message="Please press ok ";
             String Password = "";
             String role = "";
@@ -82,15 +87,18 @@ public class loginGUI extends JFrame{
                 try{
                     Statement st;
                     ResultSet rs;
-                    Connection con = DriverManager.getConnection("","","");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bapers","root","");
                     st = con.createStatement();
-                    rs = st.executeQuery("SELECT Role FROM Staff WHERE Staff.Username = '"+username+"'");
-                    role = rs.getString(1);
+                    rs = st.executeQuery("SELECT Role " +
+                            "FROM Staff " +
+                            "WHERE Staff.Username = '"+username+"'" +
+                            "AND Staff.Password = '"+Password+"'");
+                    while(rs.next()){role = rs.getString(1);}
                 }
                 catch(SQLException err){
                     JOptionPane.showMessageDialog(null,err);
                 }
-                if(username.equals("Tech")) {
+                if(role.equals("Technician")) {
                     JOptionPane.showMessageDialog(null,Message+username);
                     TechInterface test = new TechInterface("C:\\Users\\Xavie\\Documents\\AllData\\Technician");
                     test.setVisible(true);
@@ -100,10 +108,10 @@ public class loginGUI extends JFrame{
                     Front.setVisible(true);
                 }else if(username.equals("Office")){
                     JOptionPane.showMessageDialog(null, Message+username);
-                    OfficeManagerInterface Office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData");
+                    OfficeManagerInterface Office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData","Office");
                 }else if(username.equals("Shift")){
                     JOptionPane.showMessageDialog(null, Message+username);
-                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager");
+                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Shift");
                 }else{
                     JOptionPane.showMessageDialog(null,"Fuck off");
                     System.exit(0);

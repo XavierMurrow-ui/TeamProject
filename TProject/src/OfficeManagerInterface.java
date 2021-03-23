@@ -13,7 +13,7 @@ public class OfficeManagerInterface extends MainInterface{
     private String[] colHeads={"Job No.","Priority","Deadline","Status"};
     private String[][]data={{"","","",""}};
 
-    public OfficeManagerInterface(String path){
+    public OfficeManagerInterface(String path,String role){
         super(path);
         remove(tPane);
         table = new JTable(data,colHeads);
@@ -167,7 +167,7 @@ public class OfficeManagerInterface extends MainInterface{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData");
+                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData","Office");
                 tech.setVisible(true);
             }
         });

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SOTInterface extends TechInterface {
-    public SOTInterface(String path) {
+    public SOTInterface(String path,String role) {
         super(path);
         remove(buttPane);
         JButton back = new JButton("Back");
@@ -19,13 +19,12 @@ public class SOTInterface extends TechInterface {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginGUI user = new loginGUI();
-                if(user.getUsername().equals("Office")){
+                if(role.equals("Office")){
                     dispose();
-                    OfficeManagerInterface office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData");
+                    OfficeManagerInterface office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData","Office");
                 }else{
                     dispose();
-                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager");
+                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Office");
                 }
             }
         });
