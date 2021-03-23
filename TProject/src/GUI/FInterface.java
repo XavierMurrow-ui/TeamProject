@@ -1,3 +1,4 @@
+package GUI;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;

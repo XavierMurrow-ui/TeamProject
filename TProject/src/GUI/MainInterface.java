@@ -1,3 +1,4 @@
+package GUI;
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
