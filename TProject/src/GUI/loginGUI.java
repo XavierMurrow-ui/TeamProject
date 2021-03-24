@@ -73,11 +73,6 @@ public class loginGUI extends JFrame{
     private class Enter implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException ex) {
-                ex.printStackTrace();
-            }
             String Message="Please press ok ";
             String role = "";
             if(e.getSource()==Login || enter){
@@ -85,7 +80,6 @@ public class loginGUI extends JFrame{
                 Pass_word = password.getText();
                 DBConnection login = new DBConnection(username,Pass_word);
                 role = login.RoleReturn();
-
                 if(role.equals("Technician")) {
                     JOptionPane.showMessageDialog(null,Message+username);
                     TechInterface test = new TechInterface("C:\\Users\\Xavie\\Documents\\AllData\\Technician");
