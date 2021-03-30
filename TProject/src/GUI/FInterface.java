@@ -17,6 +17,7 @@ public class FInterface extends MainInterface {
         remove(tPane);
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
+        table.setSize(900,500);
         add(tPane,BorderLayout.CENTER);
         remove(buttPane);
         inTask.setText("Search for Customer");
@@ -92,12 +93,14 @@ public class FInterface extends MainInterface {
                             remove(tPane);
                             table = new JTable(data,colHeads);
                             tPane = new JScrollPane(table);
+                            table.setSize(900,500);
                             add(tPane, BorderLayout.CENTER);
                             setVisible(true);
                         }
                     });
 
                     tPane = new JScrollPane(nTask);
+                    table.setSize(900,500);
                     add(tPane,BorderLayout.CENTER);
                     setVisible(true);
             }
@@ -152,6 +155,7 @@ public class FInterface extends MainInterface {
                         remove(tPane);
                         table = new JTable(data,colHeads);
                         tPane = new JScrollPane(table);
+                        table.setSize(900,500);
                         add(tPane, BorderLayout.CENTER);
                         setVisible(true);
                     }
@@ -175,6 +179,7 @@ public class FInterface extends MainInterface {
                 });
 
                 tPane = new JScrollPane(nTask);
+                table.setSize(900,500);
                 add(tPane,BorderLayout.CENTER);
                 setVisible(true);
             }

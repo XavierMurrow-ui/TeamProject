@@ -63,9 +63,22 @@ public class DBConnection {
         return name;
     }
 
+    public ResultSet Connect(String sql) {
+        try {
+            con = getConnection();
+            st = con.createStatement();
+            st.setQueryTimeout(30);
+            rs = st.executeQuery(sql);
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err);
+        }
+        return rs;
+    }
+
     // Database Connection
     public static Connection getConnection() throws SQLException {
         String url = "jdbc:sqlite:BAPERS.db";
         return DriverManager.getConnection(url);
     }
+
 }
