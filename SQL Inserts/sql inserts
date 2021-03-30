@@ -1,0 +1,100 @@
+INSERT INTO Customer (Customer_Name, Customer_ID, Contact_Name, Email, Address_Street, City,  PostCode, Phone) 
+VALUES ('City, University of London (City)', 'ACC0001', 'Prof David Rhind', 'David.Rhind@city.ac.uk', 'Northampton Square', 'London', 'EC1V 0HB', '02070408000');
+INSERT INTO Customer (Customer_Name, Customer_ID, Contact_Name, Email, Address_Street, City,  PostCode, Phone) 
+VALUES ('AirVia Ltd', 'ACC0002', 'Mr Boris Berezovsky', 'Boris.B@yahoo.com', '12 Bond Street', 'London', 'WC1V 8HU', '02073218523');
+INSERT INTO Customer (Customer_Name, Customer_ID, Contact_Name, Email, Address_Street, City,  PostCode, Phone) 
+VALUES ('InfoPharma Ltd', 'ACC0003', 'Mr Alex Wright', 'Alex.Wright@infopharma.com', '25 Bond Street', 'London', 'WC1V 8LS', '02073218001');
+INSERT INTO Customer (Customer_Name, Customer_ID, Contact_Name, Email, Address_Street, City,  PostCode, Phone) 
+VALUES ('Hello Magazine', 'ACC0004', 'Ms Sarah Brocklehurst', 'Sarah.Brocklehurst@hello.com', '12 Charter Street', 'London', 'W1 8NS', '02034567809');
+INSERT INTO Customer (Customer_Name, Customer_ID, Contact_Name, Email, Address_Street, City,  PostCode, Phone) 
+VALUES ('Ms Eva Bauyer', 'ACC0005', 'Ms Eva Bauyer', 'eva.bauyer@gmail.com', '1 Liverpool street', 'London', 'EC2V 8NS', '02085558989');
+SELECT * FROM Customer;
+
+INSERT INTO Valued_Customer VALUES ('ACC0001', 'Fixed');
+INSERT INTO Valued_Customer VALUES ('ACC0002', 'Variable');
+INSERT INTO Valued_Customer VALUES ('ACC0003', 'Flexible');
+INSERT INTO Valued_Customer VALUES ('ACC0004', 'Flexible');
+INSERT INTO Valued_Customer VALUES ('ACC0005', 'Fixed');
+SELECT * FROM Valued_Customer;
+
+INSERT INTO Fixed_Discount VALUES ('ACC0001', '3.0');
+INSERT INTO Fixed_Discount VALUES ('ACC0005', '3.0');
+SELECT * FROM Fixed_Discount;
+
+/* Task_ID not referenced for the last column. TaskJobJob_No referenced instead.*/
+
+INSERT INTO Variable_Discount VALUES ('ACC0002','1.0', 'Use of large copy camera','1', null);
+INSERT INTO Variable_Discount VALUES ('ACC0002','1.0', 'Black and white film processing','2', null);
+INSERT INTO Variable_Discount VALUES ('ACC0002','0.0', 'Bag up','3', null);
+INSERT INTO Variable_Discount VALUES ('ACC0002','2.0', 'Colour film processing','4', null);
+INSERT INTO Variable_Discount VALUES ('ACC0002','2.0', 'Colour Transparency processing','5', null);
+INSERT INTO Variable_Discount VALUES ('ACC0002','0.0', 'Use of small copy camera','6', null);
+INSERT INTO Variable_Discount VALUES ('ACC0002','2.0', 'Mount Transparencies','7', null);
+SELECT * FROM Variable_Discount;
+
+/* Only 1st INSERT works for each, the other 2 don't work */
+INSERT INTO Flexible_Discount VALUES ('ACC0003', '0.0', 'V <= £1000');
+INSERT INTO Flexible_Discount VALUES ('ACC0003', '1.0', '£1000 < V <= £2000');
+INSERT INTO Flexible_Discount VALUES ('ACC0003', '2.0', 'V > £2000');
+
+INSERT INTO Flexible_Discount VALUES ('ACC0004', '0.0', 'V <= £1000');
+INSERT INTO Flexible_Discount VALUES ('ACC0004', '1.0', '£1000 < V <= £2000');
+INSERT INTO Flexible_Discount VALUES ('ACC0004', '2.0', 'V > £2000');
+SELECT * FROM Flexible_Discount;
+
+
+/* Start_Time and Completion_Time not used, JobJob_No and StaffStaff_ID not used (unless custom StaffID used) */
+INSERT INTO Task VALUES ('1', 'Use of large copy camera', 'Copy Room', '£19.00', null, null, '120', null, null);
+INSERT INTO Task VALUES ('2', 'Black and white film processing', 'Development Area', '£49.50', null, null, '60', null, null);
+INSERT INTO Task VALUES ('3', 'Bag up', 'Packing Departaments', '£6.00', null, null, '30', null, null);
+INSERT INTO Task VALUES ('4', 'Colour film processing', 'Development Area', '£80.00', null, null, '90', null, null);
+INSERT INTO Task VALUES ('5', 'Colour Transparency processing', 'Development Area', '£110.30', null, null, '180', null, null);
+INSERT INTO Task VALUES ('6', 'Use of small copy camera', 'Copy Room', '£8.30', null, null, '75', null, null);
+INSERT INTO Task VALUES ('7', 'Mount Transparencies', 'Finishing Room', '£55.50', null, null, '45', null, null);
+SELECT * FROM Task;
+
+/* some departaments missing (most likely reception), also Name missing */
+INSERT INTO Staff VALUES ('1', null, null, 'Office manager', 'Manager', 'Get_it_done');
+INSERT INTO Staff VALUES ('2', null, null, 'Shift Manager', 'Accountant', 'Count_money');
+INSERT INTO Staff VALUES ('3', null, null, 'Shift Manager', 'Clerk', 'Paperwork');
+INSERT INTO Staff VALUES ('4', null, null, 'A receptionist', 'Hello', 'Hello_there');
+INSERT INTO Staff VALUES ('5', null, 'Development Area', 'A technician in the development area', 'Development', 'Lot_smell');
+INSERT INTO Staff VALUES ('6', null, 'Copy room', 'A technician in the copy room', 'Copy', 'Too_dark');
+INSERT INTO Staff VALUES ('7', null, 'Packing room', 'A technician in the packing room', 'Packer', 'Pack_it');
+INSERT INTO Staff VALUES ('8', null, 'Finishing room', 'A technician in the finishing room', 'Finish', 'Fine_touch');
+SELECT * FROM Staff;
+
+/* SCENARIOS */
+/* many missing Priority, Status, Deadline and PaymentPayment_ID (valued customers can pay later) */
+INSERT INTO Job VALUES ('1', null, null, null, 'Black and white film processing', '5', 'ACC0001', '20/12/2021', null);
+INSERT INTO Job VALUES ('1', null, null, null, '5 B&W copy negatives, including pictures from all 5 films', '5', 'ACC0001', '20/12/2021', null);
+INSERT INTO Job VALUES ('2', null, null, null, '10 films for Colour copy negatives', '5', 'ACC0001', '23/12/2021', null);
+INSERT INTO Job VALUES ('2', null, null, null, '10 films for processing', '5', 'ACC0001', '23/12/2021', null);
+INSERT INTO Job VALUES ('3', 'urgent', 'paid', '6hours', '3 items for Colour copy transparency', '5', 'Ivan Grey', '23/12/2021', 'cash');
+INSERT INTO Job VALUES ('4', null, null, null, '10 films Colour copy negatives', '5', 'ACC0004', '28/12/2021', null);
+INSERT INTO Job VALUES ('4', null, null, null, '10 films B&W processing', '5', 'ACC0004', '28/12/2021', null);
+INSERT INTO Job VALUES ('5', 'very urgent', null, '3 hours', '3 items for Colour copy transparency', '5', 'ACC0003', '10/12/2022', null);
+
+/* amount missing because not given for Payment */
+INSERT INTO Job VALUES ('6', 'urgent', null, null, '3 items for Colour copy transparency', '5', 'Boris Bridge', '25/12/2022', '1');
+INSERT INTO Payment VALUES (1, null, 'card', 'Boris Bridge', 'paid');
+INSERT INTO Card_info VALUES (2132132132139999, 'Visa credit', 'Boris Bridge', '31/01/23', '9999', '888', 1);
+
+/* many missing Priority, Status, Deadline and PaymentPayment_ID (valued customers can pay later) */
+INSERT INTO Job VALUES ('7', null, null, null, '10 films for Colour copy negatives', '5', 'ACC0004', '01/02/2022', null);
+INSERT INTO Job VALUES ('7', null, null, null, '10 films for processing', '5', 'ACC0004', '01/02/2022', null);
+
+
+/* date missing */
+INSERT INTO Payment VALUES (2, 'x', null, 'ACC0004', 'paid');
+/* date missing */
+INSERT INTO Payment VALUES (3, 'x', 'credit card', 'ACC0001', 'paid');
+
+/* Last action, Backup missing */
+
+
+
+
+
+
+
