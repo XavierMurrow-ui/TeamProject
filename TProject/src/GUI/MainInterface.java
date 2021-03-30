@@ -35,7 +35,7 @@ public class MainInterface extends JFrame {
         table = new JTable(data,colHeads);
 
         tPane = new JScrollPane(table);
-        table.setSize(900,500);
+        tPane.setPreferredSize(new Dimension(800,500));
         add(tPane, BorderLayout.CENTER);
 
         File temp=new File(path);
@@ -52,7 +52,7 @@ public class MainInterface extends JFrame {
         tree = new JTree(topx);
 
         pane = new JScrollPane(tree);
-        tree.setSize(100,500);
+        pane.setPreferredSize(new Dimension(200,500));
         add(pane, BorderLayout.WEST);
 
         inTask = new JButton("Button1");

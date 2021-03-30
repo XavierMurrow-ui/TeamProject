@@ -20,9 +20,11 @@ public class TechInterface extends MainInterface {
         remove(tPane);
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
+        tPane.setPreferredSize(new Dimension(800,500));
         add(tPane, BorderLayout.CENTER);
 
         setVisible(true);
+
         inTask.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,12 +74,14 @@ public class TechInterface extends MainInterface {
                         remove(tPane);
                         table = new JTable(data,colHeads);
                         tPane = new JScrollPane(table);
+                        tPane.setPreferredSize(new Dimension(800,500));
                         add(tPane,BorderLayout.CENTER);
                         setVisible(true);
                     }
                 });
 
                 tPane = new JScrollPane(nTask);
+                tPane.setPreferredSize(new Dimension(800,500));
                 add(tPane,BorderLayout.CENTER);
                 setVisible(true);
             }

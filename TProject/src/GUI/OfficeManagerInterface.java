@@ -1,10 +1,15 @@
 package GUI;
+
+import ReportGenerator.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import com.toedter.calendar.JDateChooser;
 import com.toedter.components.JSpinField;
@@ -19,15 +24,17 @@ public class OfficeManagerInterface extends MainInterface{
         remove(tPane);
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
+        tPane.setPreferredSize(new Dimension(800,500));
         add(tPane,BorderLayout.CENTER);
         remove(buttPane);
         inTask.setText("FrontStaff Access");
         exTask.setText("TechnicianStaff Access");
-        JButton front = new JButton("Create new User Account");
-        JButton tech = new JButton("Delete User Account");
+        JButton nUser = new JButton("Create new User Account");
+        JButton dUser = new JButton("Delete User Account");
         JButton Backup = new JButton("System Back-up");
+        JButton Report = new JButton("Report Generation");
 
-        front.addActionListener(new ActionListener() {
+        nUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 remove(tPane);
@@ -69,18 +76,20 @@ public class OfficeManagerInterface extends MainInterface{
                         remove(tPane);
                         table = new JTable(data,colHeads);
                         tPane = new JScrollPane(table);
+                        tPane.setPreferredSize(new Dimension(800,500));
                         add(tPane,BorderLayout.CENTER);
                         setVisible(true);
                     }
                 });
 
                 tPane = new JScrollPane(nTask);
+                tPane.setPreferredSize(new Dimension(800,500));
                 add(tPane,BorderLayout.CENTER);
                 setVisible(true);
             }
         });
 
-        tech.addActionListener(new ActionListener() {
+        dUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showInputDialog(null,"Enter Username:");
@@ -144,12 +153,80 @@ public class OfficeManagerInterface extends MainInterface{
                         remove(tPane);
                         table = new JTable(data,colHeads);
                         tPane = new JScrollPane(table);
+                        tPane.setPreferredSize(new Dimension(800,500));
                         add(tPane,BorderLayout.CENTER);
                         setVisible(true);
                     }
                 });
 
                 tPane = new JScrollPane(nTask);
+                tPane.setPreferredSize(new Dimension(800,500));
+                add(tPane,BorderLayout.CENTER);
+                setVisible(true);
+            }
+        });
+
+        Report.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                remove(tPane);
+                JPanel nTask = new JPanel();
+                nTask.setLayout(null);
+
+                JButton inPReport = new JButton("Individual Performance Report");
+                inPReport.setToolTipText("Click to generate an individual performance report");
+                inPReport.setBounds(10,10,210,30);
+                nTask.add(inPReport);
+
+                JButton InReport = new JButton("Individual Report");
+                InReport.setToolTipText("Click to generate an individual report");
+                InReport.setBounds(10,50,135,30);
+                nTask.add(InReport);
+
+                JButton SumReport = new JButton("Summary Report");
+                SumReport.setToolTipText("Click to generate Summary Report");
+                SumReport.setBounds(10,90,135,30);
+                nTask.add(SumReport);
+
+                JButton cancel = new JButton("Cancel");
+                cancel.setToolTipText("Click to cancel submission");
+                cancel.setBounds(10,130,100,30);
+                nTask.add(cancel);
+
+                inPReport.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        generateReport test = new generateReport();
+                        test.individualPerformanceReport();
+                        List<String[]> Table = test.getTable();
+                        colHeads = new String[]{"Staff Name", "Task ID","Location", "Duration","Price"};
+                        DefaultTableModel tableModel = new DefaultTableModel(colHeads,0);
+                        remove(tPane);
+                        table = new JTable(tableModel);
+                        for(String[] rows : Table){
+                            tableModel.addRow(rows);
+                        }
+                        tPane = new JScrollPane(table);
+                        tPane.setPreferredSize(new Dimension(800,500));
+                        add(tPane,BorderLayout.CENTER);
+                        setVisible(true);
+                    }
+                });
+
+                cancel.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        remove(tPane);
+                        table = new JTable(data,colHeads);
+                        tPane = new JScrollPane(table);
+                        tPane.setPreferredSize(new Dimension(800,500));
+                        add(tPane,BorderLayout.CENTER);
+                        setVisible(true);
+                    }
+                });
+
+                tPane = new JScrollPane(nTask);
+                tPane.setPreferredSize(new Dimension(800,500));
                 add(tPane,BorderLayout.CENTER);
                 setVisible(true);
             }
@@ -158,9 +235,10 @@ public class OfficeManagerInterface extends MainInterface{
         buttPane = new JPanel(new GridLayout(3,2));
         buttPane.add(inTask);
         buttPane.add(exTask);
-        buttPane.add(front);
-        buttPane.add(tech);
+        buttPane.add(nUser);
+        buttPane.add(dUser);
         buttPane.add(Backup);
+        buttPane.add(Report);
         add(buttPane, BorderLayout.SOUTH);
         setVisible(true);
 
@@ -168,7 +246,7 @@ public class OfficeManagerInterface extends MainInterface{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData","Office");
+                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData",role);
                 tech.setVisible(true);
             }
         });

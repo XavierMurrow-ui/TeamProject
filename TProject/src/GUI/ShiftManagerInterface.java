@@ -22,7 +22,7 @@ public class ShiftManagerInterface extends MainInterface {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Shift");
+                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager",role);
                 tech.setVisible(true);
             }
         });

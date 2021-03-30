@@ -20,12 +20,12 @@ public class SOTInterface extends TechInterface {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(role.equals("Office")){
+                if(role.equals("Office Manager")){
                     dispose();
-                    OfficeManagerInterface office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData","Office");
+                    OfficeManagerInterface office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData","Office Manager");
                 }else{
                     dispose();
-                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Office");
+                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Shift Manager");
                 }
             }
         });
