@@ -1,4 +1,6 @@
 package GUI;
+
+import DBConnect.*;
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
@@ -37,7 +39,16 @@ public class MainInterface extends JFrame {
 
         File temp=new File(path);
         DefaultMutableTreeNode top = createTree(temp);
-        tree = new JTree(top);
+        DefaultMutableTreeNode topx = new DefaultMutableTreeNode("Staff");
+        DefaultMutableTreeNode name = new DefaultMutableTreeNode("Name");
+        topx.add(name);
+        DBConnection test = new DBConnection();
+        int i = 0;
+        while(i < test.test().length) {
+            name.add(test.test()[i]);
+            i++;
+        }
+        tree = new JTree(topx);
 
         pane = new JScrollPane(tree);
         pane.setSize(10,500);
@@ -56,14 +67,14 @@ public class MainInterface extends JFrame {
         buttPane.add(inTask, BorderLayout.NORTH);
         buttPane.add(exTask, BorderLayout.SOUTH);
 
-        tree.addMouseListener(
-                new MouseAdapter()
-                {
-                    public void mouseClicked(MouseEvent me)
-                    {
-                        doMouseClicked(me);
-                    }
-                });
+        //tree.addMouseListener(
+              //  new MouseAdapter()
+              //  {
+              //      public void mouseClicked(MouseEvent me)
+             //       {
+             //           doMouseClicked(me);
+            //        }
+             //   });
     }
 
     DefaultMutableTreeNode createTree(@org.jetbrains.annotations.NotNull File temp)

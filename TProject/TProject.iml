@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <content url="jar://$MODULE_DIR$/lib/mysql-connector-java-8.0.22.jar!/" />
+    <content url="jar://$MODULE_DIR$/lib/sqlite-jdbc-3.34.0.jar!/" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
@@ -21,5 +22,6 @@
     <orderEntry type="library" name="raven-shared-master" level="application" />
     <orderEntry type="library" name="mysql-connector-java-8.0.22" level="application" />
     <orderEntry type="library" name="itextpdf-5.5.13.2" level="application" />
+    <orderEntry type="library" name="sqlite-jdbc-3.34.0" level="application" />
   </component>
 </module>

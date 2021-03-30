@@ -1,24 +1,29 @@
 package DBConnect;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.sql.*;
 
 public class DBConnection {
     private String Username;
     private String Password;
-    //LoginConnection//
+    private Connection con = null;
+    Statement st;
+    ResultSet rs;
+
+    public DBConnection(){}
+
+    //LoginConnection Constructor//
     public DBConnection(String Username, String Password) {
         this.Username = Username;
         this.Password = Password;
     }
 
+    //Returns the role for login//
     public String RoleReturn(){
         String role ="";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Statement st;
-            ResultSet rs;
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bapers", "root", "");
+            con = getConnection();
             st = con.createStatement();
             rs = st.executeQuery("SELECT Role " +
                     "FROM Staff " +
@@ -27,9 +32,40 @@ public class DBConnection {
             while (rs.next()) {
                 role = rs.getString(1);
             }
-        } catch (SQLException | ClassNotFoundException err) {
+        } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, err);
         }
         return role;
+    }
+
+    public DefaultMutableTreeNode[] test(){
+        DefaultMutableTreeNode[] name = null;
+        int count = 0;
+        int i = 0;
+        int j = 1;
+        try {
+            ResultSet Count;
+            con = getConnection();
+            st = con.createStatement();
+            Count = st.executeQuery("SELECT COUNT(Name) FROM Staff");
+            while(Count.next()){
+                count = Count.getInt(1);
+            }
+            rs = st.executeQuery("SELECT Name FROM Staff");
+            name = new DefaultMutableTreeNode[count];
+            while (rs.next() && i < count) {
+                name[i] = new DefaultMutableTreeNode(rs.getString("Name"));
+                i++;
+            }
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err);
+        }
+        return name;
+    }
+
+    // Database Connection
+    public static Connection getConnection() throws SQLException {
+        String url = "jdbc:sqlite:BAPERS.db";
+        return DriverManager.getConnection(url);
     }
 }
