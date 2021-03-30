@@ -88,10 +88,10 @@ public class loginGUI extends JFrame{
                     JOptionPane.showMessageDialog(null,Message+username);
                     FInterface Front = new FInterface("C:\\Users\\Xavie\\Documents\\AllData\\FrontStaff");
                     Front.setVisible(true);
-                }else if(username.equals("Office Manager")){
+                }else if(role.equals("Office Manager")){
                     JOptionPane.showMessageDialog(null, Message+username);
                     OfficeManagerInterface Office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData","Office");
-                }else if(username.equals("Shift")){
+                }else if(role.equals("Shift")){
                     JOptionPane.showMessageDialog(null, Message+username);
                     ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Shift");
                 }else{

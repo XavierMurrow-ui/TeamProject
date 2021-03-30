@@ -35,6 +35,7 @@ public class DBConnection {
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, err);
         }
+        System.out.println(role);
         return role;
     }
 
