@@ -31,9 +31,10 @@ public class generateReport {
             // FILE NAME
             while (rs.next()) {
                 String[] row = new String[nCol];
-                for(int i = 0; i <= nCol; i++){
+                for(int i = 1; i <= nCol; i++){
                     row[i-1] = rs.getString(i);
                 }
+                table.add(row);
             }
 
 

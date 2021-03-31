@@ -3,6 +3,9 @@ package DBConnect;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class DBConnection {
     private String Username;
@@ -99,6 +102,27 @@ public class DBConnection {
             JOptionPane.showMessageDialog(null, err);
         }
         return custID;
+    }
+
+    public ArrayList<String[]> newCustTable(String custName) {
+        ArrayList<String[]> table = new ArrayList<>();
+        try {
+            String sql = "SELECT Customer_Name,Contact_Name,Email,Address,PostCode,City,Phone FROM Customer WHERE Customer.Customer_Name == '"+custName+"';";
+            con = getConnection();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            int nCol = rs.getMetaData().getColumnCount();
+            while (rs.next()) {
+                String[] row = new String[nCol];
+                for(int i = 1; i <= nCol; i++){
+                    row[i-1] = rs.getString(i);
+                }
+                table.add(row);
+            }
+        } catch (SQLException err) {
+            err.printStackTrace();
+        }
+        return table;
     }
 
     // Database Connection
