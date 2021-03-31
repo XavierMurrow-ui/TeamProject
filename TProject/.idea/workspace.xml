@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BAPERS.db" beforeDir="false" afterPath="$PROJECT_DIR$/BAPERS.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/DBConnect/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/DBConnect/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$3$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$3$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/GUI/FInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TProject/ReportGenerator/generateReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TProject/ReportGenerator/generateReport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBConnect/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBConnect/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/FInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/FInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReportGenerator/generateReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReportGenerator/generateReport.java" afterDir="false" />
-    </list>
+    <list default="true" id="465958a2-1560-4787-8d94-cef865d07c3a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
