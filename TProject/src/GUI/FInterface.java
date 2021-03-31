@@ -21,17 +21,9 @@ public class FInterface extends MainInterface {
         table.setSize(900,500);
         add(tPane,BorderLayout.CENTER);
         remove(buttPane);
-        inTask.setText("Search for Customer");
         exTask.setText("Create new Customer");
         JButton job = new JButton("Create Job");
         JButton pay = new JButton("New Payment");
-
-        inTask.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showInputDialog(null,"Enter Customers name: ");
-            }
-        });
 
         exTask.addActionListener(new ActionListener() {
                 @Override
@@ -88,6 +80,13 @@ public class FInterface extends MainInterface {
                     cancel.setToolTipText("Click to cancel submission");
                     cancel.setBounds(130,250,100,30);
                     nTask.add(cancel);
+
+                    ok.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            
+                        }
+                    });
 
                     cancel.addActionListener(new ActionListener() {
                         @Override
@@ -178,7 +177,6 @@ public class FInterface extends MainInterface {
             }
         });
         buttPane = new JPanel(new GridLayout(2,2));
-        buttPane.add(inTask);
         buttPane.add(exTask);
         buttPane.add(job);
         add(buttPane, BorderLayout.SOUTH);
