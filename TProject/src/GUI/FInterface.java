@@ -31,7 +31,7 @@ public class FInterface extends MainInterface {
                     remove(tPane);
                     JPanel nTask = new JPanel();
                     nTask.setLayout(null);
-                    JLabel[] labels = {new JLabel("Customer Name:"),new JLabel("Contract Name:"),new JLabel("Email:"),new JLabel("Address:"),new JLabel("PostCode:"),new JLabel("City:"),new JLabel("Telephone No:"),new JLabel("Discount Rate:")};
+                    JLabel[] labels = {new JLabel("Customer Name:"),new JLabel("Contract Name:"),new JLabel("Email:"),new JLabel("Address:"),new JLabel("PostCode:"),new JLabel("City:"),new JLabel("Telephone No:")};
                     labels[0].setBounds(5,-30,100,100);
                     labels[1].setBounds(5,0,100,100);
                     labels[2].setBounds(5,30,100,100);
@@ -39,7 +39,6 @@ public class FInterface extends MainInterface {
                     labels[4].setBounds(5,90,100,100);
                     labels[5].setBounds(5,120,100,100);
                     labels[6].setBounds(5,150,100,100);
-                    labels[7].setBounds(5,180,100,100);
                     nTask.add(labels[0]);
                     nTask.add(labels[1]);
                     nTask.add(labels[2]);
@@ -47,9 +46,8 @@ public class FInterface extends MainInterface {
                     nTask.add(labels[4]);
                     nTask.add(labels[5]);
                     nTask.add(labels[6]);
-                    nTask.add(labels[7]);
 
-                    JTextField[] fields = {new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10)};
+                    JTextField[] fields = {new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10)};
                     fields[0].setBounds(105,11,150,20);
                     fields[1].setBounds(105,41,150,20);
                     fields[2].setBounds(105,71,150,20);
@@ -65,10 +63,10 @@ public class FInterface extends MainInterface {
                     nTask.add(fields[5]);
                     nTask.add(fields[6]);
 
-                    String[] discountRates = {"Flexible","Variable","Fixed"};
+                    /*String[] discountRates = {"Flexible","Variable","Fixed"};
                     JComboBox discount = new JComboBox(discountRates);
                     discount.setBounds(105,221,150,20);
-                    nTask.add(discount);
+                    nTask.add(discount);*/
 
 
                     JButton ok = new JButton("Submit");
@@ -84,7 +82,15 @@ public class FInterface extends MainInterface {
                     ok.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            
+                            DBConnection connection = new DBConnection();
+                            String SQL = "SELECT Customer_Name FROM Customer WHERE Customer.Customer_Name == '"+fields[0].getText()+"'";
+                            String CustEX = connection.CustReturn(SQL);
+                            if(!CustEX.equals("")) {
+                                String sql = "INSERT INTO \n" +
+                                        "Customer (Customer_Name,Contact_Name,Email,Address,PostCode,City,Phone)  \n" +
+                                        "VALUES('"+fields[0].getText()+"','"+fields[1].getText()+"','"+ fields[2].getText()+"','"+fields[3].getText()+"','"+fields[4].getText()+"','"+ fields[5].getText()+"','"+fields[6].getText()+"');";
+                                connection.Execute(sql);
+                            }
                         }
                     });
 
