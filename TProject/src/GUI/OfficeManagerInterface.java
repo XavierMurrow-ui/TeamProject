@@ -2,11 +2,15 @@ package GUI;
 
 import ReportGenerator.*;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.attribute.FileTime;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
@@ -197,7 +201,7 @@ public class OfficeManagerInterface extends MainInterface{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         generateReport test = new generateReport();
-                        test.individualPerformanceReport();
+                        test.individualPerformanceReportTable();
                         List<String[]> Table = test.getTable();
                         colHeads = new String[]{"Staff Name", "Task ID","Location", "Duration","Price"};
                         DefaultTableModel tableModel = new DefaultTableModel(colHeads,0);
@@ -210,6 +214,14 @@ public class OfficeManagerInterface extends MainInterface{
                         tPane.setPreferredSize(new Dimension(800,500));
                         add(tPane,BorderLayout.CENTER);
                         setVisible(true);
+
+                        JFileChooser chooser = new JFileChooser();
+                        chooser.setFileFilter(new FileTypeFilter(".html","HTML File"));
+                        int result = chooser.showSaveDialog(null);
+                        if(result == JFileChooser.APPROVE_OPTION) {
+                            File f = chooser.getSelectedFile();
+                            if (f != null) test.individualPerformanceReportFile(f);
+                        }
                     }
                 });
 

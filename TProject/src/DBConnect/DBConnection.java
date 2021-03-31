@@ -35,7 +35,6 @@ public class DBConnection {
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null, err);
         }
-        System.out.println(role);
         return role;
     }
 
@@ -74,6 +73,32 @@ public class DBConnection {
             JOptionPane.showMessageDialog(null, err);
         }
         return rs;
+    }
+
+    public void Execute(String sql){
+        try {
+            con = getConnection();
+            st = con.createStatement();
+            st.setQueryTimeout(30);
+            int i  = st.executeUpdate(sql);
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+
+    public String CustReturn(String sql){
+        String custID ="";
+        try {
+            con = getConnection();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                custID = rs.getString(1);
+            }
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err);
+        }
+        return custID;
     }
 
     // Database Connection

@@ -1,11 +1,12 @@
 package GUI;
-import com.toedter.calendar.JDateChooser;
 
+import DBConnect.*;
+import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
+import java.text.*;
 
 public class FInterface extends MainInterface {
 
@@ -23,6 +24,7 @@ public class FInterface extends MainInterface {
         inTask.setText("Search for Customer");
         exTask.setText("Create new Customer");
         JButton job = new JButton("Create Job");
+        JButton pay = new JButton("New Payment");
 
         inTask.addActionListener(new ActionListener() {
             @Override
@@ -37,7 +39,7 @@ public class FInterface extends MainInterface {
                     remove(tPane);
                     JPanel nTask = new JPanel();
                     nTask.setLayout(null);
-                    JLabel[] labels = {new JLabel("Customer Name:"),new JLabel("Contract  Name:"),new JLabel("Email:"),new JLabel("Address:"),new JLabel("PostCode:"),new JLabel("City:"),new JLabel("Telephone No:"),new JLabel("Discount Rate:")};
+                    JLabel[] labels = {new JLabel("Customer Name:"),new JLabel("Contract Name:"),new JLabel("Email:"),new JLabel("Address:"),new JLabel("PostCode:"),new JLabel("City:"),new JLabel("Telephone No:"),new JLabel("Discount Rate:")};
                     labels[0].setBounds(5,-30,100,100);
                     labels[1].setBounds(5,0,100,100);
                     labels[2].setBounds(5,30,100,100);
@@ -112,32 +114,24 @@ public class FInterface extends MainInterface {
                 remove(tPane);
                 JPanel nTask = new JPanel();
                 nTask.setLayout(null);
-                JLabel[] labels = {new JLabel("Priority:"),new JLabel("Status:"),new JLabel("Deadline:"),new JLabel("Special Instructions:"),new JLabel("Price:")};
+                JLabel[] labels = {new JLabel("Priority:"),new JLabel("Deadline:"),new JLabel("Special Instructions:")};
                 labels[0].setBounds(5,-30,100,100);
                 labels[1].setBounds(5,0,100,100);
-                labels[2].setBounds(5,30,100,100);
-                labels[3].setBounds(5,60,150,100);
-                labels[4].setBounds(5,90,100,100);
+                labels[2].setBounds(5,30,150,100);
                 nTask.add(labels[0]);
                 nTask.add(labels[1]);
                 nTask.add(labels[2]);
-                nTask.add(labels[3]);
-                nTask.add(labels[4]);
 
-                JTextField[] fields = {new JTextField(10),new JTextField(10),new JTextField(10),new JTextField(10)};
+                JTextField[] fields = {new JTextField(10),new JTextField(10)};
                 fields[0].setBounds(130,11,150,20);
-                fields[1].setBounds(130,41,150,20);
 
                 JDateChooser date = new JDateChooser();
-                date.setBounds(130,71,150,20);
+                date.setBounds(130,41,150,20);
                 nTask.add(date);
 
-                fields[2].setBounds(130,101,150,20);
-                fields[3].setBounds(130,131,150,20);
+                fields[1].setBounds(130,101,150,20);
                 nTask.add(fields[0]);
                 nTask.add(fields[1]);
-                nTask.add(fields[2]);
-                nTask.add(fields[3]);
 
                 JButton ok = new JButton("Submit");
                 ok.setToolTipText("Click to submit task info");
@@ -164,17 +158,16 @@ public class FInterface extends MainInterface {
                 ok.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        Statement st;
-                        ResultSet rs;
-                        Connection con = null;
-                        try {
-                            con = DriverManager.getConnection("","","");
-                            st = con.createStatement();
-                            rs = st.executeQuery("INSERT");
-                        } catch (SQLException ex) {
-                            ex.printStackTrace();
+                        String Cust = JOptionPane.showInputDialog(null,"Enter Customers name: ");
+                        DBConnection connection = new DBConnection();
+                        String SQL = "SELECT Customer_ID FROM Customer WHERE Customer.Customer_Name == '" +Cust+"';";
+                        String custID = connection.CustReturn(SQL);
+                        if(!custID.equals("")) {
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            String sql = "INSERT INTO Job (Priority,Status,Deadline,Special_instruction,CustomerCustomer_No)\n" +
+                                    "VALUES(" + fields[0].getText() + ",'Pending','" + dateFormat.format(date.getDate()) + "','" + fields[1].getText() + "','" + custID + "');";
+                            connection.Execute(sql);
                         }
-
                     }
                 });
 

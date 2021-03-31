@@ -28,6 +28,8 @@ public class MainInterface extends JFrame {
         setLayout(new BorderLayout());
         setSize(1000,500);
         setResizable(false);
+        Dimension XD = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(XD.width/2 - this.getSize().width/2, XD.height/2 - this.getSize().height/2);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         final String[] colHeads={"Task ID","Description","Location","Price","Duration"};

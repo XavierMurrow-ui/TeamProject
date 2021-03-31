@@ -29,6 +29,8 @@ public class loginGUI extends JFrame{
         setLayout(new FlowLayout());
         setResizable(false);
         setSize(250,200);
+        Dimension XD = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(XD.width/2 - this.getSize().width/2, XD.height/2 - this.getSize().height/2);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         title = new JLabel("Login");
@@ -84,7 +86,7 @@ public class loginGUI extends JFrame{
                     JOptionPane.showMessageDialog(null,Message+username);
                     TechInterface test = new TechInterface("C:\\Users\\Xavie\\Documents\\AllData\\Technician");
                     test.setVisible(true);
-                }else if(role.equals("FrontStaff")){
+                }else if(role.equals("Receptionist")){
                     JOptionPane.showMessageDialog(null,Message+username);
                     FInterface Front = new FInterface("C:\\Users\\Xavie\\Documents\\AllData\\FrontStaff");
                     Front.setVisible(true);
