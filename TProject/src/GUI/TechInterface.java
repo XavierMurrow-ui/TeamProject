@@ -43,40 +43,42 @@ public class TechInterface extends MainInterface {
 
                 JLabel[] labels = {new JLabel("Task Type:"),new JLabel("Time Started:"),new JLabel("Time Completed:"),new JLabel("Status:")};
                 labels[0].setBounds(5,0,100,20);
-                labels[1].setBounds(5,190,100,20);
-                labels[2].setBounds(5,230,100,20);
-                labels[3].setBounds(5,270,100,20);
+                labels[1].setBounds(5,220,100,20);
+                labels[2].setBounds(5,260,100,20);
+                labels[3].setBounds(5,300,100,20);
                 nTask.add(labels[0]);
                 nTask.add(labels[1]);
                 nTask.add(labels[2]);
                 nTask.add(labels[3]);
 
                 JTextField[] fields = {new JTextField(10)};
-                fields[0].setBounds(110,270,150,20);
+                fields[0].setBounds(110,300,150,20);
                 nTask.add(fields[0]);
 
                 JDateChooser StaT = new JDateChooser();
-                StaT.setBounds(110,190,150,20);
+                StaT.setBounds(110,220,150,20);
                 nTask.add(StaT);
 
                 JDateChooser ComT = new JDateChooser();
-                ComT.setBounds(110,230,150,20);
+                ComT.setBounds(110,260,150,20);
                 nTask.add(ComT);
 
-                JCheckBox[] tasks = {new JCheckBox("Use of large copy camera"),new JCheckBox("Black and white film processing"),new JCheckBox("Colour film processing")
+                JCheckBox[] tasks = {new JCheckBox("Use of large copy camera"),new JCheckBox("Black and white film processing"),new JCheckBox("Bag up"),new JCheckBox("Colour film processing")
                         ,new JCheckBox("Colour Transparency processing"),new JCheckBox("Use of small copy camera"),new JCheckBox("Mount Transparencies")};
                 tasks[0].setBounds(110,0,200,20);
                 tasks[1].setBounds(110,30,250,20);
-                tasks[2].setBounds(110,60,200,20);
-                tasks[3].setBounds(110,90,250,20);
-                tasks[4].setBounds(110,120,200,20);
+                tasks[2].setBounds(110,60,100,20);
+                tasks[3].setBounds(110,90,200,20);
+                tasks[4].setBounds(110,120,250,20);
                 tasks[5].setBounds(110,150,200,20);
+                tasks[6].setBounds(110,180,200,20);
                 nTask.add(tasks[0]);
                 nTask.add(tasks[1]);
                 nTask.add(tasks[2]);
                 nTask.add(tasks[3]);
                 nTask.add(tasks[4]);
                 nTask.add(tasks[5]);
+                nTask.add(tasks[6]);
 
                 JButton ok = new JButton("Submit");
                 ok.setToolTipText("Click to submit task info");
@@ -137,6 +139,10 @@ public class TechInterface extends MainInterface {
                                     case "Black and white film processing":
                                         Task = "INSERT INTO Task (Description,Location,Price,Start_Time,Completion_Time,Duration,JobJob_No,StaffStaff_No,Status)\n " +
                                                 "VALUES('" + tasks[i] + "','Development Area',49.50,'"+Sdate+" "+Stime+"','"+Cdate+" "+Ctime+"',60," + jobID + ","+staffID+",'Completed')";
+                                        break;
+                                    case "Bag up":
+                                        Task = "INSERT INTO Task (Description,Location,Price,Start_Time,Completion_Time,Duration,JobJob_No,StaffStaff_No,Status)\n " +
+                                                "VALUES('" + tasks[i] + "','Packing Room',6.00,'"+Sdate+" "+Stime+"','"+Cdate+" "+Ctime+"',30," + jobID + ","+staffID+",'Completed')";
                                         break;
                                     case "Colour film processing":
                                         Task = "INSERT INTO Task (Description,Location,Price,Start_Time,Completion_Time,Duration,JobJob_No,StaffStaff_No,Status)\n " +

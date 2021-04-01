@@ -67,8 +67,6 @@ public class MainInterface extends JFrame {
         add(buttPane,BorderLayout.SOUTH);
         buttPane.add(inTask, BorderLayout.NORTH);
         buttPane.add(exTask, BorderLayout.SOUTH);
-
-
     }
 }
 

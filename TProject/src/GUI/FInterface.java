@@ -171,28 +171,31 @@ public class FInterface extends MainInterface {
                 nTask.add(fields[0]);
                 nTask.add(fields[1]);
 
-                JCheckBox[] tasks = {new JCheckBox("Use of large copy camera"),new JCheckBox("Black and white film processing"),new JCheckBox("Colour film processing")
+                JCheckBox[] tasks = {new JCheckBox("Use of large copy camera"),new JCheckBox("Black and white film processing"),new JCheckBox("Bag up"),new JCheckBox("Colour film processing")
                         ,new JCheckBox("Colour Transparency processing"),new JCheckBox("Use of small copy camera"),new JCheckBox("Mount Transparencies")};
                 tasks[0].setBounds(130,100,200,20);
                 tasks[1].setBounds(130,130,220,20);
-                tasks[2].setBounds(130,160,200,20);
+                tasks[2].setBounds(130,160,100,20);
                 tasks[3].setBounds(130,190,220,20);
                 tasks[4].setBounds(130,220,200,20);
                 tasks[5].setBounds(130,250,200,20);
+                tasks[6].setBounds(130,280,200,20);
                 nTask.add(tasks[0]);
                 nTask.add(tasks[1]);
                 nTask.add(tasks[2]);
                 nTask.add(tasks[3]);
                 nTask.add(tasks[4]);
                 nTask.add(tasks[5]);
+                nTask.add(tasks[6]);
 
-                JSpinField[] Tasks = {new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField()};
+                JSpinField[] Tasks = {new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField()};
                 Tasks[0].setBounds(360,100,40,20);
                 Tasks[1].setBounds(360,130,40,20);
                 Tasks[2].setBounds(360,160,40,20);
                 Tasks[3].setBounds(360,190,40,20);
                 Tasks[4].setBounds(360,220,40,20);
                 Tasks[5].setBounds(360,250,40,20);
+                Tasks[6].setBounds(360,280,40,20);
                 for(JSpinField x : Tasks){
                     x.setMinimum(0);
                     x.setMaximum(99);
@@ -201,12 +204,12 @@ public class FInterface extends MainInterface {
 
                 JButton ok = new JButton("Submit");
                 ok.setToolTipText("Click to submit task info");
-                ok.setBounds(10,280,100,30);
+                ok.setBounds(10,310,100,30);
                 nTask.add(ok);
 
                 JButton cancel = new JButton("Cancel");
                 cancel.setToolTipText("Click to cancel submission");
-                cancel.setBounds(130,280,100,30);
+                cancel.setBounds(130,310,100,30);
                 nTask.add(cancel);
 
                 cancel.addActionListener(new ActionListener() {
@@ -226,7 +229,7 @@ public class FInterface extends MainInterface {
                     public void actionPerformed(ActionEvent e) {
                         String Cust = JOptionPane.showInputDialog(null,"Enter Customers name: ");
                         DBConnection connection = new DBConnection();
-                        String SQL = "SELECT Customer_Name FROM Customer WHERE Customer.Customer_Name == '" +Cust+"';";
+                        String SQL = "SELECT Customer_ID FROM Customer WHERE Customer.Customer_Name == '" +Cust+"';";
                         int custID = Integer.parseInt(connection.CustReturn(SQL));
                         if(custID != 0) {
                             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -247,38 +250,55 @@ public class FInterface extends MainInterface {
                                     "AND Customer.Customer_ID ==" + custID + "\n" +
                                     "ORDER BY Job_No DESC LIMIT 1;";
                             int jobID = Integer.parseInt(connection.CustReturn(Job));
-                            for(int i = 0; i < taskDes.length; i++){
+                            for(int i = 0; i < tasks.length; i++){
                                 String Task = "";
-                                switch (taskDes[i]){
-                                    case "Use of large copy camera":
-                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Copy Room',19.00,120,"+jobID+",'Pending')";
-                                        break;
-                                    case "Black and white film processing":
-                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Development Area',49.50,60,"+jobID+",'Pending')";
-                                        break;
-                                    case "Colour film processing":
-                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Development Area',80.00,90,"+jobID+",'Pending')";
-                                        break;
+                                if(tasks[i].isSelected()) {
+                                    switch (tasks[i].getText()) {
+                                        case "Use of large copy camera":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Copy Room',19.00,120," + jobID + ",'Pending')";
+                                            break;
+                                        case "Black and white film processing":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Development Area',49.50,60," + jobID + ",'Pending')";
+                                            break;
+                                        case "Bag up":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Packing Room',6.00,30," + jobID + ",'Pending')";
+                                            break;
+                                        case "Colour film processing":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Development Area',80.00,90," + jobID + ",'Pending')";
+                                            break;
 
-                                    case "Colour Transparency processing":
-                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Development Area',110.30,180,"+jobID+",'Pending')";
-                                        break;
+                                        case "Colour Transparency processing":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Development Area',110.30,180," + jobID + ",'Pending')";
+                                            break;
 
-                                    case "Use of small copy camera":
-                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Copy Room',8.30,75,"+jobID+",'Pending')";
-                                        break;
+                                        case "Use of small copy camera":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Copy Room',8.30,75," + jobID + ",'Pending')";
+                                            break;
 
-                                    case "Mount Transparencies":
-                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Finishing Room',55.50,45,"+jobID+",'Pending')";
-                                        break;
+                                        case "Mount Transparencies":
+                                            Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                    "VALUES(" + taskQuan[i] + ",'" + taskDes[i] + "','Finishing Room',55.50,45," + jobID + ",'Pending')";
+                                            break;
+                                    }
+                                    connection.Execute(Task);
+                                    String temp = "SELECT Task_ID FROM Task,Job WHERE Task.JobJob_No == Job.Job_No AND Job.Job_No = " + jobID + " AND Task.Quantity > 1 AND Task.Description = '" + tasks[i].getText() + "';";
+                                    String Task_ID = con.CustReturn(temp);
+                                    String Task_Price = con.CustReturn("SELECT Price FROM Task WHERE Task_ID = "+Integer.parseInt(Task_ID)+";");
+                                    String Job_Price = con.CustReturn("SELECT Price FROM Job WHERE Job_ID = "+jobID+";");
+                                    if (!Task_ID.equals("") && !Job_Price.equals("")) {
+                                        String Update = "UPDATE Job SET Price = "+(taskQuan[i]*Integer.parseInt(Task_Price))+Integer.parseInt(Job_Price)+" WHERE Job_ID = "+jobID+";";
+                                        con.Execute(Update);
+                                    }else if(Job_Price.equals("")){
+                                        String Update = "UPDATE Job SET Price = "+(taskQuan[i]*Integer.parseInt(Task_Price))+" WHERE Job_ID = "+jobID+";";
+                                        con.Execute(Update);
+                                    }
                                 }
-                                connection.Execute(Task);
                             }
                         }
                     }
@@ -331,19 +351,24 @@ public class FInterface extends MainInterface {
                         remove(tPane);
                         JPanel nTask = new JPanel();
                         nTask.setLayout(null);
+                        String Cust = JOptionPane.showInputDialog(null,"Customer Name: ");
+                        DBConnection con = new DBConnection();
+                        String CustID = "SELECT Customer_ID FROM Customer WHERE Customer.Customer_Name = '"+Cust+"';";
+                        int custID = Integer.parseInt(con.CustReturn(CustID));
+                        String jobPrice = "SELECT Price FROM Job WHERE Job.CustomerCustomer_No = "+custID+" AND Job.Status = 'Pending';";
+                        String JPrice = con.CustReturn(jobPrice);
 
-                        JLabel[] labels = {new JLabel("Amount:"),new JLabel("Payment Type:")};
+                        JLabel[] labels = {new JLabel("Amount:"),new JLabel("Payment Type:"),new JLabel("£"+JPrice)};
                         labels[0].setBounds(5,-30,100,100);
                         labels[1].setBounds(5,0,100,100);
+                        labels[2].setBounds(100,-30,100,100);
                         nTask.add(labels[0]);
                         nTask.add(labels[1]);
+                        nTask.add(labels[2]);
 
-                        JTextField[] fields = {new JTextField(10)};
-                        fields[0].setBounds(130,11,150,20);
                         String[] pType = {"Cash","Card"};
                         JComboBox pay = new JComboBox(pType);
                         pay.setBounds(130,41,150,20);
-                        nTask.add(fields[0]);
                         nTask.add(pay);
 
                         JButton ok = new JButton("Submit");
@@ -372,10 +397,6 @@ public class FInterface extends MainInterface {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 boolean nCust = true;
-                                DBConnection con = new DBConnection();
-                                String CustName = JOptionPane.showInputDialog(null,"Enter Customer Making Payment: ");
-                                String SQL = "SELECT Customer_ID FROM Customer WHERE Customer.Customer_Name == '" +CustName+"';";
-                                int custID = Integer.parseInt(con.CustReturn(SQL));
                                 String JOB = "SELECT Payment_ID FROM Payment, Customer\n" +
                                         "WHERE Payment.CustomerCustomer_No == Customer.Customer_ID \n" +
                                         "AND Customer.Customer_ID ==" + custID + "\n" +
@@ -388,17 +409,17 @@ public class FInterface extends MainInterface {
                                     long CardNo = Long.parseLong(con.CustReturn(card));
                                     if(custID != 0){
                                         String sql = "INSERT INTO Payment (Amount, Payment_Type, CustomerCustomer_No, Payment_Status, Card_No)" +
-                                                "VALUES('"+fields[0].getText()+"','"+String.valueOf(pay.getSelectedItem())+"', "+custID+",FALSE,"+CardNo+");";
+                                                "VALUES('"+Float.parseFloat(JPrice)+"','"+String.valueOf(pay.getSelectedItem())+"', "+custID+",FALSE,"+CardNo+");";
                                         con.Execute(sql);
                                         int payID = Integer.parseInt(con.CustReturn(JOB));
-                                        String job = "UPDATE Job SET PaymentPayment_ID = "+payID+" WHERE Job.CustomerCustomer_No = "+custID+" AND Priority = 'Pending';";
+                                        String job = "UPDATE Job SET PaymentPayment_ID = "+payID+" WHERE Job.CustomerCustomer_No = "+custID+" AND Status = 'Pending';";
                                         con.Execute(job);
                                     }
                                 }
                                 if(String.valueOf(pay.getSelectedItem()).equals("Card") && nCust){
                                     if(custID != 0){
                                         String sql = "INSERT INTO Payment (Amount, Payment_Type, CustomerCustomer_No, Payment_Status)" +
-                                                "VALUES('"+fields[0].getText()+"','"+String.valueOf(pay.getSelectedItem())+"', "+custID+",FALSE);";
+                                                "VALUES('"+Float.parseFloat(JPrice)+"','"+String.valueOf(pay.getSelectedItem())+"', "+custID+",FALSE);";
                                         con.Execute(sql);
                                         int payID = Integer.parseInt(con.CustReturn(JOB));
                                         String job = "UPDATE Job SET PaymentPayment_ID = "+payID+" WHERE Job.CustomerCustomer_No = "+custID+" AND Priority = 'Pending';";
