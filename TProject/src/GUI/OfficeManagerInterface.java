@@ -365,6 +365,24 @@ public class OfficeManagerInterface extends MainInterface{
             }
         });
 
+        exTask.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SOTInterface tech = new SOTInterface(username,role);
+                tech.setVisible(true);
+            }
+        });
+
+        inTask.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SOSInterface front = new SOSInterface(username,role);
+                front.setVisible(true);
+            }
+        });
+
         buttPane = new JPanel(new GridLayout(3,2));
         buttPane.add(inTask);
         buttPane.add(exTask);
@@ -374,14 +392,5 @@ public class OfficeManagerInterface extends MainInterface{
         buttPane.add(Report);
         add(buttPane, BorderLayout.SOUTH);
         setVisible(true);
-
-        exTask.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData",role);
-                tech.setVisible(true);
-            }
-        });
     }
 }

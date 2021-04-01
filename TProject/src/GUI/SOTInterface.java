@@ -12,7 +12,7 @@ public class SOTInterface extends TechInterface {
         JButton back = new JButton("Back");
         back.setToolTipText("Click to exit Technician interface");
 
-        buttPane = new JPanel(new GridLayout(3,1));
+        buttPane = new JPanel(new GridLayout(2,2));
         buttPane.add(inTask);
         buttPane.add(Logout);
         buttPane.add(back);

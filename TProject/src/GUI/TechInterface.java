@@ -42,17 +42,17 @@ public class TechInterface extends MainInterface {
                 nTask.setLayout(null);
 
                 JLabel[] labels = {new JLabel("Task Type:"),new JLabel("Time Started:"),new JLabel("Time Completed:"),new JLabel("Status:")};
-                labels[0].setBounds(5,-30,100,20);
-                labels[1].setBounds(5,150,100,20);
-                labels[2].setBounds(5,190,100,20);
-                labels[3].setBounds(5,230,100,20);
+                labels[0].setBounds(5,0,100,20);
+                labels[1].setBounds(5,190,100,20);
+                labels[2].setBounds(5,230,100,20);
+                labels[3].setBounds(5,270,100,20);
                 nTask.add(labels[0]);
                 nTask.add(labels[1]);
                 nTask.add(labels[2]);
                 nTask.add(labels[3]);
 
                 JTextField[] fields = {new JTextField(10)};
-                fields[0].setBounds(110,230,150,20);
+                fields[0].setBounds(110,270,150,20);
                 nTask.add(fields[0]);
 
                 JDateChooser StaT = new JDateChooser();
@@ -65,12 +65,12 @@ public class TechInterface extends MainInterface {
 
                 JCheckBox[] tasks = {new JCheckBox("Use of large copy camera"),new JCheckBox("Black and white film processing"),new JCheckBox("Colour film processing")
                         ,new JCheckBox("Colour Transparency processing"),new JCheckBox("Use of small copy camera"),new JCheckBox("Mount Transparencies")};
-                tasks[0].setBounds(110,11,200,20);
-                tasks[1].setBounds(110,41,250,20);
-                tasks[2].setBounds(110,71,200,20);
-                tasks[3].setBounds(110,101,250,20);
-                tasks[4].setBounds(110,131,200,20);
-                tasks[5].setBounds(110,161,200,20);
+                tasks[0].setBounds(110,0,200,20);
+                tasks[1].setBounds(110,30,250,20);
+                tasks[2].setBounds(110,60,200,20);
+                tasks[3].setBounds(110,90,250,20);
+                tasks[4].setBounds(110,120,200,20);
+                tasks[5].setBounds(110,150,200,20);
                 nTask.add(tasks[0]);
                 nTask.add(tasks[1]);
                 nTask.add(tasks[2]);

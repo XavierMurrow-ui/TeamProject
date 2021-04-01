@@ -18,6 +18,15 @@ public class ShiftManagerInterface extends MainInterface {
         exTask.setText("Technician Access");
         setVisible(true);
 
+        inTask.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SOSInterface front = new SOSInterface(username,role);
+                front.setVisible(true);
+            }
+        });
+
         exTask.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
