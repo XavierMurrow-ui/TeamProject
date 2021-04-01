@@ -57,7 +57,7 @@ public class DBConnection {
             rs = st.executeQuery(sql);
             name = new DefaultMutableTreeNode[count];
             while (rs.next() && i < count) {
-                name[i] = new DefaultMutableTreeNode(rs.getString("Name"));
+                name[i] = new DefaultMutableTreeNode(rs.getString(1));
                 i++;
             }
         } catch (SQLException err) {

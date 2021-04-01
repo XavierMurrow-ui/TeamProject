@@ -101,7 +101,7 @@ public class loginGUI extends JFrame{
                     System.exit(0);
                 }
                 dispose();
-            }else if(e.getSource() == Exit){
+            }if(e.getSource() == Exit){
                 System.exit(0);
             }
         }

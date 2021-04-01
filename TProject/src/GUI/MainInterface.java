@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class MainInterface extends JFrame {
 
     protected JTable table;
-    private final JTree tree;
+    protected JTree tree;
     protected JScrollPane pane;
     protected JScrollPane tPane;
     protected final JButton inTask,exTask;

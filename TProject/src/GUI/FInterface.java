@@ -3,8 +3,11 @@ package GUI;
 import DBConnect.*;
 import ReportGenerator.generateReport;
 import com.toedter.calendar.JDateChooser;
+import com.toedter.components.JSpinField;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,12 +23,27 @@ public class FInterface extends MainInterface {
     JButton job,Payment,logout;
 
     public FInterface(){
+        remove(pane);
+        DefaultMutableTreeNode Cust = new DefaultMutableTreeNode("Customers");
+        DefaultMutableTreeNode CustN = new DefaultMutableTreeNode("Customer Names");
+        Cust.add(CustN);
+        DBConnection con = new DBConnection();
+        String countCust = "SELECT COUNT(Customer_ID) FROM Customer";
+        String sqlCust = "SELECT Customer_Name FROM Customer";
+        for(int i = 0 ; i < con.test(countCust,sqlCust).length; i++) {
+            CustN.add(con.test(countCust,sqlCust)[i]);
+        }
+        tree = new JTree(Cust);
+        pane = new JScrollPane(tree);
+        pane.setPreferredSize(new Dimension(200,500));
+        add(pane, BorderLayout.WEST);
 
         remove(tPane);
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
         table.setSize(900,500);
         add(tPane,BorderLayout.CENTER);
+
         remove(buttPane);
         exTask.setText("Create new Customer");
         job = new JButton("Create Job");
@@ -156,9 +174,9 @@ public class FInterface extends MainInterface {
                 JCheckBox[] tasks = {new JCheckBox("Use of large copy camera"),new JCheckBox("Black and white film processing"),new JCheckBox("Colour film processing")
                         ,new JCheckBox("Colour Transparency processing"),new JCheckBox("Use of small copy camera"),new JCheckBox("Mount Transparencies")};
                 tasks[0].setBounds(130,100,200,20);
-                tasks[1].setBounds(130,130,250,20);
+                tasks[1].setBounds(130,130,220,20);
                 tasks[2].setBounds(130,160,200,20);
-                tasks[3].setBounds(130,190,250,20);
+                tasks[3].setBounds(130,190,220,20);
                 tasks[4].setBounds(130,220,200,20);
                 tasks[5].setBounds(130,250,200,20);
                 nTask.add(tasks[0]);
@@ -167,6 +185,19 @@ public class FInterface extends MainInterface {
                 nTask.add(tasks[3]);
                 nTask.add(tasks[4]);
                 nTask.add(tasks[5]);
+
+                JSpinField[] Tasks = {new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField(),new JSpinField()};
+                Tasks[0].setBounds(360,100,40,20);
+                Tasks[1].setBounds(360,130,40,20);
+                Tasks[2].setBounds(360,160,40,20);
+                Tasks[3].setBounds(360,190,40,20);
+                Tasks[4].setBounds(360,220,40,20);
+                Tasks[5].setBounds(360,250,40,20);
+                for(JSpinField x : Tasks){
+                    x.setMinimum(0);
+                    x.setMaximum(99);
+                    nTask.add(x);
+                }
 
                 JButton ok = new JButton("Submit");
                 ok.setToolTipText("Click to submit task info");
@@ -203,8 +234,13 @@ public class FInterface extends MainInterface {
                                     "VALUES(" + fields[0].getText() + ",'Pending','" + dateFormat.format(date.getDate()) + "','" + fields[1].getText() + "','" + custID + "');";
                             connection.Execute(sql);
                             String[] taskDes = new String[tasks.length];
+                            int[] taskQuan = new int[Tasks.length];
+
                             for(int i = 0; i < tasks.length; i++){
-                                if(tasks[i].isSelected()) taskDes[i] =  tasks[i].getText();
+                                if(tasks[i].isSelected() && Tasks[i].getValue() != 0) {
+                                    taskDes[i] = tasks[i].getText();
+                                    taskQuan[i] = Tasks[i].getValue();
+                                }
                             }
                             String Job = "SELECT Job_No FROM Job, Customer\n" +
                                     "WHERE Job.CustomerCustomer_No == Customer.Customer_ID \n" +
@@ -215,31 +251,31 @@ public class FInterface extends MainInterface {
                                 String Task = "";
                                 switch (taskDes[i]){
                                     case "Use of large copy camera":
-                                        Task = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES('"+taskDes[i]+"','Copy Room',19.00,120,"+jobID+",'Pending')";
+                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Copy Room',19.00,120,"+jobID+",'Pending')";
                                         break;
                                     case "Black and white film processing":
-                                        Task = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES('"+taskDes[i]+"','Development Area',49.50,60,"+jobID+",'Pending')";
+                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Development Area',49.50,60,"+jobID+",'Pending')";
                                         break;
                                     case "Colour film processing":
-                                        Task = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES('"+taskDes[i]+"','Development Area',80.00,90,"+jobID+",'Pending')";
+                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Development Area',80.00,90,"+jobID+",'Pending')";
                                         break;
 
                                     case "Colour Transparency processing":
-                                        Task = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES('"+taskDes[i]+"','Development Area',110.30,180,"+jobID+",'Pending')";
+                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Development Area',110.30,180,"+jobID+",'Pending')";
                                         break;
 
                                     case "Use of small copy camera":
-                                        Task = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES('"+taskDes[i]+"','Copy Room',8.30,75,"+jobID+",'Pending')";
+                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Copy Room',8.30,75,"+jobID+",'Pending')";
                                         break;
 
                                     case "Mount Transparencies":
-                                        Task = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,Status)\n " +
-                                                "VALUES('"+taskDes[i]+"','Finishing Room',55.50,45,"+jobID+",'Pending')";
+                                        Task = "INSERT INTO Task (Quantity,Description,Location,Price,Duration,JobJob_No,Status)\n " +
+                                                "VALUES("+taskQuan[i]+",'"+taskDes[i]+"','Finishing Room',55.50,45,"+jobID+",'Pending')";
                                         break;
                                 }
                                 connection.Execute(Task);

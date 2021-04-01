@@ -8,11 +8,8 @@
       <change beforePath="$PROJECT_DIR$/src/GUI/FInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/FInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/MainInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/OfficeManagerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/OfficeManagerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SOTInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SOTInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ShiftManagerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShiftManagerInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/TechInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/TechInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/loginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/loginGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReportGenerator/generateReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReportGenerator/generateReport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

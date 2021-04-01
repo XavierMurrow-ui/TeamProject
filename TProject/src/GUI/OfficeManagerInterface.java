@@ -25,11 +25,38 @@ public class OfficeManagerInterface extends MainInterface{
     private String[][]data={{"","","",""}};
 
     public OfficeManagerInterface(String username,String role){
+        remove(pane);
+        DefaultMutableTreeNode Top = new DefaultMutableTreeNode("Pending Items");
+        DefaultMutableTreeNode jobs = new DefaultMutableTreeNode("Jobs");
+        DefaultMutableTreeNode pays = new DefaultMutableTreeNode("Payments");
+        Top.insert(jobs,0);
+        Top.insert(pays,1);
+        DefaultMutableTreeNode JobPs = new DefaultMutableTreeNode("Pending Jobs");
+        DefaultMutableTreeNode PendPs = new DefaultMutableTreeNode("Pending Payments");
+        jobs.add(JobPs);
+        pays.add(PendPs);
+        DBConnection test = new DBConnection();
+        String countJobs = "SELECT COUNT(Job_No) FROM Job WHERE Status = 'Pending'";
+        String sqlJobs = "SELECT Customer_Name FROM Customer,Job WHERE Customer.Customer_ID == Job.CustomerCustomer_No AND Job.Status = 'Pending'";
+        String countPays = "SELECT COUNT(Payment_ID) FROM Payment WHERE Payment_Status == FALSE";
+        String sqlPays = "SELECT Customer_Name FROM Customer,Payment WHERE Customer.Customer_ID == Payment.CustomerCustomer_No AND Payment.Payment_Status == FALSE";
+        for(int i = 0 ; i < test.test(countJobs,sqlJobs).length; i++) {
+            JobPs.add(test.test(countJobs,sqlJobs)[i]);
+        }
+        for(int i = 0; i < test.test(countPays,sqlPays).length; i++){
+            PendPs.add(test.test(countPays,sqlPays)[i]);
+        }
+        tree = new JTree(Top);
+        pane = new JScrollPane(tree);
+        pane.setPreferredSize(new Dimension(200,500));
+        add(pane, BorderLayout.WEST);
+
         remove(tPane);
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
         tPane.setPreferredSize(new Dimension(800,500));
         add(tPane,BorderLayout.CENTER);
+
         remove(buttPane);
         inTask.setText("FrontStaff Access");
         exTask.setText("TechnicianStaff Access");
@@ -90,7 +117,7 @@ public class OfficeManagerInterface extends MainInterface{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         DBConnection con = new DBConnection();
-                        
+                        String SQL = "INSERT INTO Staff (Name,Department,Role,UserName,Password) VALUES('"+fields[0].getText()+"')";
                     }
                 });
 
