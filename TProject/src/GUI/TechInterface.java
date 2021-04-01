@@ -119,15 +119,7 @@ public class TechInterface extends MainInterface {
                         int jobID = Integer.parseInt(con.CustReturn(Job));
                         String Staff = "SELECT Staff_ID FROM Staff WHERE Staff.UserName == '"+Username+"';";
                         int staffID = Integer.parseInt(con.CustReturn(Staff));
-                        for(int i = 0; i < tasks.length; i++) {
-                            if(tasks[i].isSelected()) {
-                                String UpTask = "INSERT INTO Task (Description,Location,Price,Duration,JobJob_No,StaffStaff_ID,Status)\n" +
-                                        "VALUES(10,'Mount Transparencies','Finishing Room',55.50,45,,'Pending');";
-                                con.Execute(UpTask);
-                                String UpMainTask = "UPDATE Task ";
-                            }
-                        }
-
+                        
                         for(int i = 0; i < tasks.length; i++){
                             String Task = "";
                             if(tasks[i].isSelected()) {

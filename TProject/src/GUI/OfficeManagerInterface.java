@@ -120,7 +120,7 @@ public class OfficeManagerInterface extends MainInterface{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         DBConnection con = new DBConnection();
-                        String SQL = "INSERT INTO Staff (Name,Department,Role,UserName,Password) VALUES('"+fields[0].getText()+"')";
+                        String SQL = "INSERT INTO Staff (Name,Department,Role,UserName,Password) VALUES('"+fields[0].getText()+"','"+fields[1].getText()+"','"+fields[2].getText()+"','"+fields[3].getText()+"';)";
                         con.Execute(SQL);
                     }
                 });
