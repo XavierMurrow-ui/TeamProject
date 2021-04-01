@@ -1,5 +1,6 @@
 package GUI;
 
+import DBConnect.DBConnection;
 import ReportGenerator.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -23,8 +24,7 @@ public class OfficeManagerInterface extends MainInterface{
     private String[] colHeads={"Job No.","Priority","Deadline","Status"};
     private String[][]data={{"","","",""}};
 
-    public OfficeManagerInterface(String path,String role){
-        super(path);
+    public OfficeManagerInterface(String username,String role){
         remove(tPane);
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
@@ -83,6 +83,14 @@ public class OfficeManagerInterface extends MainInterface{
                         tPane.setPreferredSize(new Dimension(800,500));
                         add(tPane,BorderLayout.CENTER);
                         setVisible(true);
+                    }
+                });
+
+                ok.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        DBConnection con = new DBConnection();
+                        
                     }
                 });
 
@@ -222,6 +230,92 @@ public class OfficeManagerInterface extends MainInterface{
                             File f = chooser.getSelectedFile();
                             if (f != null) test.individualPerformanceReportFile(f);
                         }
+                    }
+                });
+
+                InReport.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        remove(tPane);
+                        JPanel nTask = new JPanel();
+                        nTask.setLayout(null);
+
+                        JLabel[] labels = {new JLabel("Customer Name:"),new JLabel("Start Date:"),new JLabel("End Date")};
+                        labels[0].setBounds(5,-30,100,100);
+                        labels[1].setBounds(5,0,100,100);
+                        labels[2].setBounds(5, 30, 100, 100);
+                        nTask.add(labels[0]);
+                        nTask.add(labels[1]);
+                        nTask.add(labels[2]);
+
+                        JTextField[] fields = {new JTextField(10)};
+                        fields[0].setBounds(130,11,150,20);
+                        nTask.add(fields[0]);
+
+                        JDateChooser start = new JDateChooser();
+                        start.setDateFormatString("dd-MM-yy");
+                        start.setBounds(130,41,150,20);
+                        nTask.add(start);
+
+                        JDateChooser end = new JDateChooser();
+                        end.setDateFormatString("dd-MM-yy");
+                        end.setBounds(130,71,150,20);
+                        nTask.add(end);
+
+                        JButton ok = new JButton("Submit");
+                        ok.setToolTipText("Click to submit task info");
+                        ok.setBounds(10,250,100,30);
+                        nTask.add(ok);
+
+                        JButton cancel = new JButton("Cancel");
+                        cancel.setToolTipText("Click to cancel submission");
+                        cancel.setBounds(130,250,100,30);
+                        nTask.add(cancel);
+
+                        cancel.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                remove(tPane);
+                                table = new JTable(data,colHeads);
+                                tPane = new JScrollPane(table);
+                                table.setSize(900,500);
+                                add(tPane, BorderLayout.CENTER);
+                                setVisible(true);
+                            }
+                        });
+
+                        ok.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                generateReport test = new generateReport();
+                                test.individualReportTable(fields[0].getText(),start.getDate(),end.getDate());
+                                List<String[]> Table = test.getTable();
+                                colHeads = new String[]{"Deadline", "Job ID", "Customer Name"};
+                                DefaultTableModel tableModel = new DefaultTableModel(colHeads,0);
+                                remove(tPane);
+                                table = new JTable(tableModel);
+                                for(String[] rows : Table){
+                                    tableModel.addRow(rows);
+                                }
+                                tPane = new JScrollPane(table);
+                                tPane.setPreferredSize(new Dimension(800,500));
+                                add(tPane,BorderLayout.CENTER);
+                                setVisible(true);
+
+                                JFileChooser chooser = new JFileChooser();
+                                chooser.setFileFilter(new FileTypeFilter(".html","HTML File"));
+                                int result = chooser.showSaveDialog(null);
+                                if(result == JFileChooser.APPROVE_OPTION) {
+                                    File f = chooser.getSelectedFile();
+                                    if (f != null) test.individualReportFile(fields[0].getText(),start.getDate(),end.getDate(),f);
+                                }
+                            }
+                        });
+
+                        tPane = new JScrollPane(nTask);
+                        table.setSize(900,500);
+                        add(tPane,BorderLayout.CENTER);
+                        setVisible(true);
                     }
                 });
 

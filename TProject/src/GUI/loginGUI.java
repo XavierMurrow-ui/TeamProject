@@ -84,18 +84,18 @@ public class loginGUI extends JFrame{
                 role = login.RoleReturn();
                 if(role.equals("Technician")) {
                     JOptionPane.showMessageDialog(null,Message+username);
-                    TechInterface test = new TechInterface("C:\\Users\\Xavie\\Documents\\AllData\\Technician");
+                    TechInterface test = new TechInterface(username);
                     test.setVisible(true);
                 }else if(role.equals("Receptionist")){
                     JOptionPane.showMessageDialog(null,Message+username);
-                    FInterface Front = new FInterface("C:\\Users\\Xavie\\Documents\\AllData\\FrontStaff");
+                    FInterface Front = new FInterface();
                     Front.setVisible(true);
                 }else if(role.equals("Office Manager")){
                     JOptionPane.showMessageDialog(null, Message+username);
-                    OfficeManagerInterface Office = new OfficeManagerInterface("C:\\Users\\Xavie\\Documents\\AllData","Office Manager");
+                    OfficeManagerInterface Office = new OfficeManagerInterface(username,role);
                 }else if(role.equals("Shift Manager")){
                     JOptionPane.showMessageDialog(null, Message+username);
-                    ShiftManagerInterface shift = new ShiftManagerInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager","Shift");
+                    ShiftManagerInterface shift = new ShiftManagerInterface(username,role);
                 }else{
                     JOptionPane.showMessageDialog(null,"Fuck off");
                     System.exit(0);

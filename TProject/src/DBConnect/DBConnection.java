@@ -41,7 +41,7 @@ public class DBConnection {
         return role;
     }
 
-    public DefaultMutableTreeNode[] test(){
+    public DefaultMutableTreeNode[] test(String Condition,String sql){
         DefaultMutableTreeNode[] name = null;
         int count = 0;
         int i = 0;
@@ -50,11 +50,11 @@ public class DBConnection {
             ResultSet Count;
             con = getConnection();
             st = con.createStatement();
-            Count = st.executeQuery("SELECT COUNT(Name) FROM Staff");
+            Count = st.executeQuery(Condition);
             while(Count.next()){
                 count = Count.getInt(1);
             }
-            rs = st.executeQuery("SELECT Name FROM Staff");
+            rs = st.executeQuery(sql);
             name = new DefaultMutableTreeNode[count];
             while (rs.next() && i < count) {
                 name[i] = new DefaultMutableTreeNode(rs.getString("Name"));

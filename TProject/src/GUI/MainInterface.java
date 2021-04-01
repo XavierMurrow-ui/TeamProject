@@ -20,10 +20,8 @@ public class MainInterface extends JFrame {
     protected JScrollPane tPane;
     protected final JButton inTask,exTask;
     protected JPanel buttPane;
-    private String[] colHeads={"Task ID","Description","Location","Price","Duration"};
-    private String[][]data={{"","","","",""}};
 
-    public MainInterface(String path){
+    public MainInterface(){
         super("Test");
         setLayout(new BorderLayout());
         setSize(1000,500);
@@ -40,15 +38,15 @@ public class MainInterface extends JFrame {
         tPane.setPreferredSize(new Dimension(800,500));
         add(tPane, BorderLayout.CENTER);
 
-        File temp=new File(path);
-        DefaultMutableTreeNode top = createTree(temp);
         DefaultMutableTreeNode topx = new DefaultMutableTreeNode("Staff");
         DefaultMutableTreeNode name = new DefaultMutableTreeNode("Name");
         topx.add(name);
         DBConnection test = new DBConnection();
         int i = 0;
-        while(i < test.test().length) {
-            name.add(test.test()[i]);
+        String count = "SELECT COUNT(Name) FROM Staff";
+        String sql = "SELECT Name FROM Staff";
+        while(i < test.test(count,sql).length) {
+            name.add(test.test(count,sql)[i]);
             i++;
         }
         tree = new JTree(topx);
@@ -70,128 +68,7 @@ public class MainInterface extends JFrame {
         buttPane.add(inTask, BorderLayout.NORTH);
         buttPane.add(exTask, BorderLayout.SOUTH);
 
-        //tree.addMouseListener(
-              //  new MouseAdapter()
-              //  {
-              //      public void mouseClicked(MouseEvent me)
-             //       {
-             //           doMouseClicked(me);
-            //        }
-             //   });
+
     }
-
-    DefaultMutableTreeNode createTree(@org.jetbrains.annotations.NotNull File temp)
-    {
-        DefaultMutableTreeNode top=new DefaultMutableTreeNode(temp.getPath());
-        if(!(temp.exists() && temp.isDirectory()))
-            return top;
-
-        fillTree(top,temp.getPath());
-
-        return top;
-    }
-
-    void fillTree(DefaultMutableTreeNode root, String filename)
-    {
-        File temp=new File(filename);
-
-        if(!(temp.exists() && temp.isDirectory()))
-            return;
-        File[] filelist=temp.listFiles();
-
-        for(int i=0; i<filelist.length; i++)
-        {
-            if(!filelist[i].isDirectory())
-                continue;
-            final DefaultMutableTreeNode tempDmtn=new DefaultMutableTreeNode(filelist[i].getName());
-            root.add(tempDmtn);
-            final String newfilename=new String(filename+"\\"+filelist[i].getName());
-            Thread t=new Thread()
-            {
-                public void run()
-                {
-                    fillTree(tempDmtn,newfilename);
-                }//run
-            };//thread
-            if(t==null)
-            {System.out.println("no more thread allowed "+newfilename);return;}
-            t.start();
-        }//for
-    }//function
-
-    void doMouseClicked(MouseEvent me)
-    {
-        TreePath tp=tree.getPathForLocation(me.getX(),me.getY());
-        if(tp==null) return;
-        String s=tp.toString();
-        s=s.replace("[","");
-        s=s.replace("]","");
-        s=s.replace(", ","\\");
-        showFiles(s);
-    }
-
-    void showFiles(String filename)
-    {
-        File temp=new File(filename);
-        data=new String[][]{{"","","",""}};
-        remove(tPane);
-        table=new JTable(data, colHeads);
-        tPane=new JScrollPane(table);
-        setVisible(false);
-        add(tPane,BorderLayout.CENTER);
-        setVisible(true);
-
-        if(!temp.exists()) return;
-        if(!temp.isDirectory()) return;
-
-        File[] filelist=temp.listFiles();
-        int fileCounter=0;
-        data=new String[filelist.length][4];
-        for(int i=0; i<filelist.length; i++)
-        {
-            if(filelist[i].isDirectory())
-                continue;
-            data[fileCounter][0]=new String(filelist[i].getName());
-            data[fileCounter][1]=new String(filelist[i].length()+"");
-            data[fileCounter][2]=new String(!filelist[i].canWrite()+"");
-            data[fileCounter][3]=new String(filelist[i].isHidden()+"");
-            fileCounter++;
-        }//for
-
-        String dataTemp[][]=new String[fileCounter][4];
-        for(int k=0; k<fileCounter; k++)
-            dataTemp[k]=data[k];
-        data=dataTemp;
-
-        remove(tPane);
-        table=new JTable(data, colHeads);
-        tPane=new JScrollPane(table);
-        setVisible(false);
-        add(tPane,BorderLayout.CENTER);
-        setVisible(true);
-    }//function
-
-    void showFile(String filename){
-        File temp=new File(filename);
-        data=new String[][]{{"","","",""}};
-        remove(tPane);
-        table=new JTable(data, colHeads);
-        tPane=new JScrollPane(table);
-        setVisible(false);
-        add(tPane,BorderLayout.CENTER);
-        setVisible(true);
-
-        if(!temp.exists()) return;
-
-        data = new String[][]{{new String(temp.getName()),new String(temp.length()+""),new String(temp.canWrite()+""),new String(temp.isHidden()+"")}};
-
-        remove(tPane);
-        table=new JTable(data, colHeads);
-        tPane=new JScrollPane(table);
-        setVisible(false);
-        add(tPane,BorderLayout.CENTER);
-        setVisible(true);
-    }
-
 }
 

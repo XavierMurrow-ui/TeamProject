@@ -9,8 +9,8 @@ public class ShiftManagerInterface extends MainInterface {
     private String[] colHeads={"Job No.","Priority","Deadline","Status"};
     private String[][]data={{"","","",""}};
 
-    public ShiftManagerInterface(String path,String role) {
-        super(path);
+    public ShiftManagerInterface(String username,String role) {
+
         table = new JTable(data,colHeads);
         tPane = new JScrollPane(table);
         add(tPane, BorderLayout.CENTER);
@@ -22,7 +22,7 @@ public class ShiftManagerInterface extends MainInterface {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SOTInterface tech = new SOTInterface("C:\\Users\\Xavie\\Documents\\AllData\\Staff Manager",role);
+                SOTInterface tech = new SOTInterface(username,role);
                 tech.setVisible(true);
             }
         });
