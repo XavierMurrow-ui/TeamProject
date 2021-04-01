@@ -121,6 +121,7 @@ public class OfficeManagerInterface extends MainInterface{
                     public void actionPerformed(ActionEvent e) {
                         DBConnection con = new DBConnection();
                         String SQL = "INSERT INTO Staff (Name,Department,Role,UserName,Password) VALUES('"+fields[0].getText()+"')";
+                        con.Execute(SQL);
                     }
                 });
 

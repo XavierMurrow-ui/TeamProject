@@ -355,7 +355,7 @@ public class FInterface extends MainInterface {
                         DBConnection con = new DBConnection();
                         String CustID = "SELECT Customer_ID FROM Customer WHERE Customer.Customer_Name = '"+Cust+"';";
                         int custID = Integer.parseInt(con.CustReturn(CustID));
-                        String jobPrice = "SELECT Price FROM Job WHERE Job.CustomerCustomer_No = "+custID+" AND Job.Status = 'Pending';";
+                        String jobPrice = "SELECT Price FROM Job WHERE Job.CustomerCustomer_No = "+custID+" AND Job.Status = 'Completed';";
                         String JPrice = con.CustReturn(jobPrice);
 
                         JLabel[] labels = {new JLabel("Amount:"),new JLabel("Payment Type:"),new JLabel("£"+JPrice)};
