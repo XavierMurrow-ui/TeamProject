@@ -119,7 +119,7 @@ public class TechInterface extends MainInterface {
                         int jobID = Integer.parseInt(con.CustReturn(Job));
                         String Staff = "SELECT Staff_ID FROM Staff WHERE Staff.UserName == '"+Username+"';";
                         int staffID = Integer.parseInt(con.CustReturn(Staff));
-                        
+
                         for(int i = 0; i < tasks.length; i++){
                             String Task = "";
                             if(tasks[i].isSelected()) {
