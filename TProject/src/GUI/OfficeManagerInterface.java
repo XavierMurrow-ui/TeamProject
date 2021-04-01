@@ -1,5 +1,6 @@
 package GUI;
 
+import BackUp.*;
 import DBConnect.DBConnection;
 import ReportGenerator.*;
 import javax.swing.*;
@@ -14,6 +15,8 @@ import java.io.File;
 import java.nio.file.attribute.FileTime;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.toedter.calendar.JDateChooser;
@@ -149,12 +152,6 @@ public class OfficeManagerInterface extends MainInterface{
                 nTask.add(labels[1]);
                 nTask.add(labels[2]);
 
-                /*JTextField[] fields = {new JTextField(10), new JTextField(10), new JTextField(10), new JTextField(10)};
-                fields[0].setBounds(85, 11, 150, 20);
-                fields[1].setBounds(85, 41, 150, 20);
-                nTask.add(fields[0]);
-                nTask.add(fields[1]);*/
-
                 JDateChooser date = new JDateChooser();
                 date.setBounds(100,11,150,20);
                 nTask.add(date);
@@ -195,6 +192,14 @@ public class OfficeManagerInterface extends MainInterface{
                         tPane.setPreferredSize(new Dimension(800,500));
                         add(tPane,BorderLayout.CENTER);
                         setVisible(true);
+                    }
+                });
+
+                ok.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        backupRestore backup = new backupRestore(date.getDate());
+                        backup.backUpTime();
                     }
                 });
 

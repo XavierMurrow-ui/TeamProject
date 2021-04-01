@@ -1,6 +1,6 @@
 package BackUp;
 
-import java.sql.Connection;
+import DBConnect.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,61 +12,35 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class backupRestore {
+    public static DBConnection connection;
+    public static Date date;
 
-    // Database Connection
-    public static Connection getConnection() throws SQLException {
-        String url = "jdbc:sqlite:sample.db";
-        return DriverManager.getConnection(url);
+    public backupRestore(Date date){
+        this.date = date;
     }
 
     // Back-Up Data
-    static void backUp() {
+    public static void backUp() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-        Connection connection;
-        try {
-            // create a database connection
-            connection = getConnection();
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);
-
-            String fileName = dateFormat.format(date);
-            connection.createStatement().executeUpdate("backup to " + fileName + ".db");
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        connection = new DBConnection();
+        String fileName = dateFormat.format(date);
+        connection.Execute("backup to " + fileName + ".db");
     }
 
     // Back-Up Data Scheduling
-    static void backUpTime() {
+    public static void backUpTime() {
         Timer t = new Timer();
-        try {
-            t.schedule(new TimerTask() {
-                public void run() {
-                    backUp();
-                }
-            }, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2021-03-09 15:47:20"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        t.schedule(new TimerTask() {
+            public void run() {
+                backUp();
+            }
+        }, Long.parseLong(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)));
     }
 
 
     // Restore From Back-Up
-    static void restoreBackup(String fileName) {
-        Connection connection;
-        try {
-            // create a database connection
-            connection = getConnection();
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);
-
-            connection.createStatement().executeUpdate("restore from " + fileName + ".db");
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+    public static void restoreBackup(String fileName) {
+        connection.Execute("restore from " + fileName + ".db");
     }
 
 }
